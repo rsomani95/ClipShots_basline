@@ -50,7 +50,7 @@ def train(cur_iter, total_iter,data_loader, model, criterion, optimizer,schedule
         for _,(inputs,targets) in enumerate(data_loader):
 
             if not opt.no_cuda:
-                targets = targets.cuda(async=True)
+                targets = targets.cuda(non_blocking=True)
 
             targets = Variable(targets)
             inputs = Variable(inputs)
